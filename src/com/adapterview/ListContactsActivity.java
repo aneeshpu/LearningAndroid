@@ -14,6 +14,8 @@ public class ListContactsActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.list_item);
 
 		String[] projection = { ContactsContract.Contacts._ID, ContactsContract.Contacts.DISPLAY_NAME };
 		Cursor cursor = managedQuery(ContactsContract.Contacts.CONTENT_URI, projection, null, null, ContactsContract.Contacts.DISPLAY_NAME + " ASC");
@@ -26,7 +28,7 @@ public class ListContactsActivity extends ListActivity {
 */		
 //		List<String> contacts = populateContacts(cursor);
 		
-		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.list_item, cursor, new String[] { ContactsContract.Contacts.DISPLAY_NAME }, new int[] {R.id.contacts});
+		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.contacts_row_layout, cursor, new String[] { ContactsContract.Contacts.DISPLAY_NAME }, new int[] {R.id.contacts});
 //		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item, contacts);
 		setListAdapter(adapter);
 	}
