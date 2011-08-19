@@ -12,10 +12,12 @@ public class ListContactsActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		String[] projection = { ContactsContract.Contacts._ID, ContactsContract.Contacts.DISPLAY_NAME };
+		setContentView(R.layout.contacts_row_layout);
+		
+		String[] projection = { ContactsContract.Contacts._ID, ContactsContract.Contacts.DISPLAY_NAME, ContactsContract.Contacts.TIMES_CONTACTED};
 		Cursor cursor = managedQuery(ContactsContract.Contacts.CONTENT_URI, projection, null, null, ContactsContract.Contacts.DISPLAY_NAME + " ASC");
 
-		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.list_item, cursor, new String[] { ContactsContract.Contacts.DISPLAY_NAME }, new int[] { R.id.contacts });
+		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.list_item, cursor, new String[] { ContactsContract.Contacts.TIMES_CONTACTED, ContactsContract.Contacts.DISPLAY_NAME}, new int[] {R.id.contact_id, R.id.display_name});
 		setListAdapter(adapter);
 	}
 }
