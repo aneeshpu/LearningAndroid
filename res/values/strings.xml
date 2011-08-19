@@ -2,7 +2,7 @@
 <resources>
     <string name="hello">Hello World, ListViewActivity!</string>
     <string name="app_name">HelloAdapterView</string>
-    <string name="contacts_app_name">Hello Contacts</string>
+    <string name="contacts_app_name">Contacts</string>
     
     <string-array name="countries">
     	<item>India</item>
